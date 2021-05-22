@@ -9,6 +9,7 @@ namespace LeadsTests
 {
     public class LeadsControllerTests
     {
+        
         [Fact]
         public void GetAllLeads()
         {
@@ -42,6 +43,27 @@ namespace LeadsTests
         {
             LeadsController leadsController = new();
             var response = leadsController.GetLeadsBySalesRepName("Rep Name");
+            Assert.NotNull(response);
+        }
+        [Fact]
+        public void GetLeadsByManagerName()
+        {
+            LeadsController leadsController = new();
+            var response = leadsController.GetLeadsByManagerName("Peter Parker");
+            Assert.NotNull(response);
+        }
+        [Fact]
+        public void GetLeadsTwoWeeksBack()
+        {
+            LeadsController leadsController = new();
+            var response = leadsController.GetLeadsTwoWeeksBack();
+            Assert.NotNull(response);
+        }
+        [Fact]
+        public void GetLeadsMonthBack()
+        {
+            LeadsController leadsController = new();
+            var response = leadsController.GetLeadsMonthBack();
             Assert.NotNull(response);
         }
 

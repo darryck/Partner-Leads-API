@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace Partner_Leads_API
+namespace Partner_Leads_API.Models
 {
     public partial class PartnerCompany
     {

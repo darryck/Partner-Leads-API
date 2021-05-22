@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
-namespace Partner_Leads_API
+namespace Partner_Leads_API.Models
 {
     public partial class PartnerLeadsContext : DbContext
     {
@@ -18,6 +18,7 @@ namespace Partner_Leads_API
         }
 
         public virtual DbSet<Lead> Leads { get; set; }
+        public virtual DbSet<LeadStatus> LeadStatuses { get; set; }
         public virtual DbSet<Manager> Managers { get; set; }
         public virtual DbSet<PartnerCompany> PartnerCompanies { get; set; }
         public virtual DbSet<SalesRep> SalesReps { get; set; }
@@ -37,11 +38,9 @@ namespace Partner_Leads_API
 
             modelBuilder.Entity<Lead>(entity =>
             {
-                entity.ToTable("lead");
+                entity.HasNoKey();
 
-                entity.Property(e => e.LeadId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("lead_id");
+                entity.ToTable("lead");
 
                 entity.Property(e => e.Address)
                     .HasMaxLength(50)
@@ -59,20 +58,23 @@ namespace Partner_Leads_API
                     .HasColumnName("customer_full_name");
 
                 entity.Property(e => e.InstallDate)
-                    .HasColumnType("date")
+                    .HasColumnType("datetime")
                     .HasColumnName("install_date");
 
+                entity.Property(e => e.LeadId).HasColumnName("lead_id");
+
                 entity.Property(e => e.LeadStatus)
-                    .HasMaxLength(10)
-                    .HasColumnName("lead_status")
-                    .IsFixedLength(true);
+                    .IsRequired()
+                    .HasMaxLength(17)
+                    .IsUnicode(false)
+                    .HasColumnName("lead_status");
 
                 entity.Property(e => e.PartnerCompanyId).HasColumnName("partner_company_id");
 
                 entity.Property(e => e.SalesRepId).HasColumnName("sales_rep_id");
 
                 entity.Property(e => e.State)
-                    .HasMaxLength(50)
+                    .HasMaxLength(2)
                     .IsUnicode(false)
                     .HasColumnName("state");
 
@@ -80,6 +82,36 @@ namespace Partner_Leads_API
                     .HasMaxLength(15)
                     .IsUnicode(false)
                     .HasColumnName("zip");
+
+                entity.HasOne(d => d.LeadStatusNavigation)
+                    .WithMany()
+                    .HasForeignKey(d => d.LeadStatus)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_leads_lead_status");
+
+                entity.HasOne(d => d.PartnerCompany)
+                    .WithMany()
+                    .HasForeignKey(d => d.PartnerCompanyId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_leads_partner_company");
+
+                entity.HasOne(d => d.SalesRep)
+                    .WithMany()
+                    .HasForeignKey(d => d.SalesRepId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_leads_sales_rep");
+            });
+
+            modelBuilder.Entity<LeadStatus>(entity =>
+            {
+                entity.HasKey(e => e.LeadStatusName);
+
+                entity.ToTable("lead_status");
+
+                entity.Property(e => e.LeadStatusName)
+                    .HasMaxLength(17)
+                    .IsUnicode(false)
+                    .HasColumnName("lead_status_name");
             });
 
             modelBuilder.Entity<Manager>(entity =>

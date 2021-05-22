@@ -15,6 +15,7 @@ using System.Reflection;
 using System.IO;
 using Microsoft.EntityFrameworkCore;
 using Partner_Leads_API.Repositories;
+using Partner_Leads_API.Models;
 
 namespace Partner_Leads_API
 {

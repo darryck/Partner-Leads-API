@@ -1,5 +1,4 @@
-﻿//using Partner_Leads_API.Models;
-using Partner_Leads_API.Models;
+﻿using Partner_Leads_API.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,13 +8,14 @@ namespace Partner_Leads_API.Repositories
 {
     public interface ILeadRepository
     {
-        bool CheckUser(string apikey);
         List<Lead> GetAllLeads();
         IEnumerable<Lead> GetLeadsByCustomerName(string CustomerName);
+        IEnumerable<Lead> GetRepIdFromRepName(string SalesRepName);
+        IEnumerable<Lead> GetLeadsByManagerName(string ManagerName);
+        IEnumerable<Lead> GetLeadsByAddress(AddressModel addressModel);
         IEnumerable<Lead> GetTwoWeekPeriodDateTime();
         IEnumerable<Lead> GetLastMonthDateTime();
-        IEnumerable<Lead> GetRepIdFromRepName(string SalesRepName);
-        IEnumerable<Lead> GetLeadsByManagerName(string SalesRepName);
-        IEnumerable<Lead> GetLeadsByAddress(AddressModel addressModel);
+        IEnumerable<SalesRepsLeadStatusCountsModel> GetSalesRepLeadStatusCounts();
+        
     }
 }

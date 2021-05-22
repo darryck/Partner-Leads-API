@@ -1,4 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -9,28 +14,39 @@ namespace Partner_Leads_API.MessageHandlers
 {
     public class ApiKeyMessageHandler : DelegatingHandler
     {
-        private const string ApiKeyToCheck = "565as4df654as65d";
-        /*
-        protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage httpRequestMessage, CancellationToken cancellationToken)
+        [AttributeUsage(validOn: AttributeTargets.Class)]
+        public class ApiKeyAttribute : Attribute, IAsyncActionFilter
         {
-            bool validKey = false;
-            IEnumerable<string> requestHeaders;
-            var checkApiKeyExists = httpRequestMessage.Headers.TryGetValues("APIKey", out requestHeaders);
-            if (checkApiKeyExists)
+            private const string APIKEYNAME = "ApiKey";
+            public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
             {
-                if(requestHeaders.FirstOrDefault().Equals(ApiKeyToCheck))
+                if (!context.HttpContext.Request.Headers.TryGetValue(APIKEYNAME, out var extractedApiKey))
                 {
-                    validKey = true;
+                    context.Result = new ContentResult()
+                    {
+                        StatusCode = 401,
+                        Content = "No Api Key provided"
+                    };
+                    return;
                 }
-                if(!validKey)
+
+                var appSettings =
+                    context.HttpContext.RequestServices.GetRequiredService<IConfiguration>();
+
+                var apiKey = appSettings.GetValue<string>(APIKEYNAME);
+
+                if (!apiKey.Equals(extractedApiKey))
                 {
-                    return httpRequestMessage.CreateResponse(HttpStatusCode.Forbidden, "Invalid API Key");
+                    context.Result = new ContentResult()
+                    {
+                        StatusCode = 401,
+                        Content = "Api Key is invalid"
+                    };
+                    return;
                 }
-                var response = await base.SendAsync(httpRequestMessage, cancellationToken);
-                return response;
+
+                await next();
             }
-            if(!checkApiKeyExists) return httpRequestMessage.CreateResponse(HttpStatusCode.Forbidden, "Invalid API Key");
         }
-        */
     }
 }

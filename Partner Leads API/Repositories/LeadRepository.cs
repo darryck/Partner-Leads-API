@@ -11,8 +11,7 @@ namespace Partner_Leads_API.Repositories
 {
 
     public class LeadRepository: ILeadRepository
-    {
-
+    {        
         public List<Lead> GetAllLeads()
         {
             using var context = new PartnerLeadsContext();
@@ -41,14 +40,7 @@ namespace Partner_Leads_API.Repositories
             int ManagerId = context.Managers.Where(m => m.ManagerFullName == ManagerName).Select(m => m.ManagerId).FirstOrDefault();
             if (ManagerId == 0) return null;
             List<int> SalesRepIds = context.SalesReps.Where(sr => sr.ManagerId == ManagerId).Select(sr => sr.SalesRepId).ToList();
-            IEnumerable<Lead> response = null;
-            foreach(int SalesRepId in SalesRepIds)
-            {
-                IEnumerable<Lead> leads = context.Leads.Where(l => l.SalesRepId == SalesRepId);
-                //response.Add(leads);
-
-            }
-            return response;
+            return context.Leads.Where(l => SalesRepIds.Contains(l.SalesRepId)).ToList(); ;
         }
         public IEnumerable<Lead> GetTwoWeekPeriodDateTime()
         {
@@ -65,13 +57,13 @@ namespace Partner_Leads_API.Repositories
             return context.Leads.Where(l => l.InstallDate >= today && l.InstallDate >= monthAgo);
 
         }
-
-
-
-
-        public bool CheckUser(string apikey)
+       public IEnumerable<SalesRepsLeadStatusCountsModel> GetSalesRepLeadStatusCounts()
         {
-            throw new NotImplementedException();
+            using var context = new PartnerLeadsContext();
+            List<SalesRepsLeadStatusCountsModel> asdf = new();
+            int pc = 3;
+            IEnumerable<SalesRepsLeadStatusCountsModel> response = (IEnumerable<SalesRepsLeadStatusCountsModel>)context.Leads.Where(l => l.PartnerCompanyId == pc).Select(l => l.SalesRepId).ToList();
+            return response;
         }
     }
 }
