@@ -1,0 +1,24 @@
+C:\Users\darry\source\repos\Partner Leads API\LeadsDatabase\bin\Debug\net5.0\Partner Leads API.deps.json
+C:\Users\darry\source\repos\Partner Leads API\LeadsDatabase\bin\Debug\net5.0\Partner Leads API.runtimeconfig.json
+C:\Users\darry\source\repos\Partner Leads API\LeadsDatabase\bin\Debug\net5.0\Partner Leads API.runtimeconfig.dev.json
+C:\Users\darry\source\repos\Partner Leads API\LeadsDatabase\bin\Debug\net5.0\appsettings.Development.json
+C:\Users\darry\source\repos\Partner Leads API\LeadsDatabase\bin\Debug\net5.0\appsettings.json
+C:\Users\darry\source\repos\Partner Leads API\LeadsDatabase\bin\Debug\net5.0\Partner Leads API.exe
+C:\Users\darry\source\repos\Partner Leads API\LeadsDatabase\bin\Debug\net5.0\LeadsDatabase.deps.json
+C:\Users\darry\source\repos\Partner Leads API\LeadsDatabase\bin\Debug\net5.0\LeadsDatabase.runtimeconfig.json
+C:\Users\darry\source\repos\Partner Leads API\LeadsDatabase\bin\Debug\net5.0\LeadsDatabase.runtimeconfig.dev.json
+C:\Users\darry\source\repos\Partner Leads API\LeadsDatabase\bin\Debug\net5.0\LeadsDatabase.dll
+C:\Users\darry\source\repos\Partner Leads API\LeadsDatabase\bin\Debug\net5.0\ref\LeadsDatabase.dll
+C:\Users\darry\source\repos\Partner Leads API\LeadsDatabase\bin\Debug\net5.0\LeadsDatabase.pdb
+C:\Users\darry\source\repos\Partner Leads API\LeadsDatabase\bin\Debug\net5.0\Partner Leads API.dll
+C:\Users\darry\source\repos\Partner Leads API\LeadsDatabase\bin\Debug\net5.0\Partner Leads API.pdb
+C:\Users\darry\source\repos\Partner Leads API\LeadsDatabase\obj\Debug\net5.0\LeadsDatabase.csprojAssemblyReference.cache
+C:\Users\darry\source\repos\Partner Leads API\LeadsDatabase\obj\Debug\net5.0\LeadsDatabase.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\darry\source\repos\Partner Leads API\LeadsDatabase\obj\Debug\net5.0\LeadsDatabase.AssemblyInfoInputs.cache
+C:\Users\darry\source\repos\Partner Leads API\LeadsDatabase\obj\Debug\net5.0\LeadsDatabase.AssemblyInfo.cs
+C:\Users\darry\source\repos\Partner Leads API\LeadsDatabase\obj\Debug\net5.0\LeadsDatabase.csproj.CoreCompileInputs.cache
+C:\Users\darry\source\repos\Partner Leads API\LeadsDatabase\obj\Debug\net5.0\LeadsDatabase.csproj.CopyComplete
+C:\Users\darry\source\repos\Partner Leads API\LeadsDatabase\obj\Debug\net5.0\LeadsDatabase.dll
+C:\Users\darry\source\repos\Partner Leads API\LeadsDatabase\obj\Debug\net5.0\ref\LeadsDatabase.dll
+C:\Users\darry\source\repos\Partner Leads API\LeadsDatabase\obj\Debug\net5.0\LeadsDatabase.pdb
+C:\Users\darry\source\repos\Partner Leads API\LeadsDatabase\obj\Debug\net5.0\LeadsDatabase.genruntimeconfig.cache
