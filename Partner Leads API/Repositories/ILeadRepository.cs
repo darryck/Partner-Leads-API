@@ -10,12 +10,14 @@ namespace Partner_Leads_API.Repositories
     {
         List<Lead> GetAllLeads();
         IEnumerable<Lead> GetLeadsByCustomerName(string CustomerName);
+        IEnumerable<Lead> GetLeadsByAddress(AddressModel addressModel);
         IEnumerable<Lead> GetRepIdFromRepName(string SalesRepName);
         IEnumerable<Lead> GetLeadsByManagerName(string ManagerName);
-        IEnumerable<Lead> GetLeadsByAddress(AddressModel addressModel);
+        IEnumerable<SalesRepsLeadStatusCountsModel> GetSalesRepLeadStatusCounts();
         IEnumerable<Lead> GetTwoWeekPeriodDateTime();
         IEnumerable<Lead> GetLastMonthDateTime();
-        IEnumerable<SalesRepsLeadStatusCountsModel> GetSalesRepLeadStatusCounts();
+
+
         
     }
 }

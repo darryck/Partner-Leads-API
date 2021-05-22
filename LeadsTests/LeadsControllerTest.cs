@@ -9,7 +9,7 @@ namespace LeadsTests
 {
     public class LeadsControllerTests
     {
-        
+
         [Fact]
         public void GetAllLeads()
         {
@@ -32,7 +32,7 @@ namespace LeadsTests
             addressModel.City = "Kansas City";
             addressModel.State = "MO";
             addressModel.Zip = "64116";
-                              
+
             LeadsController leadsController = new();
             var response = leadsController.GetLeadsByAddress(addressModel);
             Assert.NotNull(response);
@@ -50,6 +50,13 @@ namespace LeadsTests
         {
             LeadsController leadsController = new();
             var response = leadsController.GetLeadsByManagerName("Peter Parker");
+            Assert.NotNull(response);
+        }
+        [Fact]
+        public void GetSalesRepLeadStatusCounts()
+        {
+            LeadsController leadsController = new();
+            var response = leadsController.GetSalesRepLeadStatusCounts();
             Assert.NotNull(response);
         }
         [Fact]
