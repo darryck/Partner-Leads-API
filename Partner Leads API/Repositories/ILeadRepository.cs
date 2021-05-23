@@ -1,8 +1,5 @@
 ﻿using Partner_Leads_API.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Partner_Leads_API.Repositories
 {
@@ -16,8 +13,5 @@ namespace Partner_Leads_API.Repositories
         IEnumerable<SalesRepsLeadStatusCountsModel> GetSalesRepLeadStatusCounts();
         IEnumerable<Lead> GetTwoWeekPeriodDateTime();
         IEnumerable<Lead> GetLastMonthDateTime();
-
-
-        
     }
 }
