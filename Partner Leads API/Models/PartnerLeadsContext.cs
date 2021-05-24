@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.Extensions.Configuration;
 
 #nullable disable
 
@@ -8,15 +9,11 @@ namespace Partner_Leads_API.Models
 {
     public partial class PartnerLeadsContext : DbContext
     {
-        public PartnerLeadsContext()
-        {
-        }
-
+        public PartnerLeadsContext(){}
         public PartnerLeadsContext(DbContextOptions<PartnerLeadsContext> options)
             : base(options)
         {
         }
-
         public virtual DbSet<Lead> Leads { get; set; }
         public virtual DbSet<LeadStatus> LeadStatuses { get; set; }
         public virtual DbSet<Manager> Managers { get; set; }
@@ -27,7 +24,6 @@ namespace Partner_Leads_API.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer("Server=24.2.16.24,1433;Database=PartnerLeads;User Id =Partner;Password=PartnerLeadsAPI123;");
             }
         }

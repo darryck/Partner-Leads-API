@@ -25,30 +25,27 @@ namespace Partner_Leads_API
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-        }
-
+        }        
         public IConfiguration Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<PartnerLeadsContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));            
             services.AddControllers();
 
             services.AddSwaggerGen();
             services.AddSwaggerGen(c =>
             {
-                //First we define the security scheme
-                c.AddSecurityDefinition("ApiKey", //Name the security scheme
+                c.AddSecurityDefinition("ApiKey",
                     new OpenApiSecurityScheme
                     {
-                        In = ParameterLocation.Header,
+                        Name = "ApiKey",
                         Description = "Enter your ApiKey below",
-                        Type = SecuritySchemeType.Http, //We set the scheme type to http since we're using bearer authentication
-                        Scheme = "apiKey" //The name of the HTTP Authorization scheme to be used in the Authorization header. In this case "bearer".
+                        Type = SecuritySchemeType.ApiKey,
+                        In = ParameterLocation.Header,
+                        Scheme = "apiKey"
                     }) ;
-
+                
                 c.AddSecurityRequirement(new OpenApiSecurityRequirement{
                 {
                     new OpenApiSecurityScheme{
@@ -93,8 +90,7 @@ namespace Partner_Leads_API
             });
             app.UseSwagger();
             app.UseSwaggerUI(c =>
-            {
-                
+            {                
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
                 c.RoutePrefix = string.Empty;
             });

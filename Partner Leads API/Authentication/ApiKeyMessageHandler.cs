@@ -18,7 +18,6 @@ namespace Partner_Leads_API.MessageHandlers
         public class ApiKeyAttribute : Attribute, IAsyncActionFilter
         {
             private const string APIKEYNAME = "ApiKey";
-            private readonly LeadRepository _leadRepository = new();
             public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
             {
                 if (!context.HttpContext.Request.Headers.TryGetValue(APIKEYNAME, out var extractedApiKey))
@@ -36,7 +35,7 @@ namespace Partner_Leads_API.MessageHandlers
                 var apiKey = appSettings.GetValue<string>(APIKEYNAME);
                 using var DbContext = new PartnerLeadsContext();
                 var partnerComapnyId = DbContext.PartnerCompanies.Where(l => l.ApiKey == extractedApiKey.ToString()).Select(pc => pc.PartnerCompanyId).ToList();
-                if (partnerComapnyId.Count() == 0)
+                if (partnerComapnyId.Count == 0)
                 {
                     context.Result = new ContentResult()
                     {
