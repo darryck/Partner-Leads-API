@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "YPFxT+Rf79hOzDX4dnOh7VnSh8D77p/p1X10KCTOLWkPX4k+V/MJoKc5/eQQs+YioFWD7wZaSRu5wNvc+5Fabg==",
+  "dgSpecHash": "9VZALtoAo8PzsjkugLH7lE8I3SVFbaGHN2861ol2945rIhpcb3Bq2Y5TcX8MyZQhebsog6tx5I9L94d+SWrIKg==",
   "success": true,
   "projectFilePath": "C:\\Users\\darry\\source\\repos\\Partner Leads API\\LeadsTests\\LeadsTests.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\darry\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\darry\\.nuget\\packages\\coverlet.collector\\3.0.3\\coverlet.collector.3.0.3.nupkg.sha512",
     "C:\\Users\\darry\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\darry\\.nuget\\packages\\microsoft.codecoverage\\16.9.4\\microsoft.codecoverage.16.9.4.nupkg.sha512",
@@ -111,7 +112,7 @@
     "C:\\Users\\darry\\.nuget\\packages\\system.private.datacontractserialization\\4.3.0\\system.private.datacontractserialization.4.3.0.nupkg.sha512",
     "C:\\Users\\darry\\.nuget\\packages\\system.private.uri\\4.3.2\\system.private.uri.4.3.2.nupkg.sha512",
     "C:\\Users\\darry\\.nuget\\packages\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",
-    "C:\\Users\\darry\\.nuget\\packages\\system.reflection.emit\\4.3.0\\system.reflection.emit.4.3.0.nupkg.sha512",
+    "C:\\Users\\darry\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
     "C:\\Users\\darry\\.nuget\\packages\\system.reflection.emit.ilgeneration\\4.3.0\\system.reflection.emit.ilgeneration.4.3.0.nupkg.sha512",
     "C:\\Users\\darry\\.nuget\\packages\\system.reflection.emit.lightweight\\4.3.0\\system.reflection.emit.lightweight.4.3.0.nupkg.sha512",
     "C:\\Users\\darry\\.nuget\\packages\\system.reflection.extensions\\4.3.0\\system.reflection.extensions.4.3.0.nupkg.sha512",

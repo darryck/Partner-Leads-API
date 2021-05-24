@@ -11,27 +11,32 @@ namespace Partner_Leads_API.Controllers
     {
         private readonly LeadRepository _leadRepository = new();
 
-        [HttpGet("/GetAllLeads")]
-        public List<Lead> GetAllLeads() => _leadRepository.GetAllLeads();
-
         [HttpGet("/GetLeadsByAddress")]
         public IEnumerable<Lead> GetLeadsByAddress(AddressModel addressModel) => _leadRepository.GetLeadsByAddress(addressModel);
 
-        [HttpGet("/GetLeadByName/")]
+        [HttpGet("/GetLeadByCustomerName/")]
         public IEnumerable<Lead> GetLeadsByCustomerName(string CustomerName) => _leadRepository.GetLeadsByCustomerName(CustomerName);
 
         [HttpGet("/GetLeadsBySalesRepName/")]
         public IEnumerable<Lead> GetLeadsBySalesRepName(string SalesRepName) => _leadRepository.GetRepIdFromRepName(SalesRepName);
+
+        [HttpGet("/GetLeadsMonthBack/")]
+        public IEnumerable<Lead> GetLeadsMonthBack() => _leadRepository.GetLastMonthDateTime();
+
         [HttpGet("/GetLeadsByManagerName/")]
         public IEnumerable<Lead> GetLeadsByManagerName(string ManagerName) => _leadRepository.GetLeadsByManagerName(ManagerName);
-        [HttpGet("/GetSalesRepLeadStatusCounts/")]
-        public IEnumerable<SalesRepsLeadStatusCountsModel> GetSalesRepLeadStatusCounts() => _leadRepository.GetSalesRepLeadStatusCounts();
+
+        [HttpGet("/GetAllReps/")]
+        public IEnumerable<AllReps> GetAllReps() => _leadRepository.GetAllReps();
 
         [HttpGet("/GetLeadsTwoWeeksBack/")]
         public IEnumerable<Lead> GetLeadsTwoWeeksBack() => _leadRepository.GetTwoWeekPeriodDateTime();
 
-        [HttpGet("/GetLeadsMonthBack/")]
-        public IEnumerable<Lead> GetLeadsMonthBack() => _leadRepository.GetLastMonthDateTime();
+        [HttpGet("/GetSalesRepLeadStatusCounts/")]
+        public IEnumerable<SalesRepsLeadStatusCountsModel> GetSalesRepLeadStatusCounts() => _leadRepository.GetSalesRepLeadStatusCounts();
+
+        [HttpGet("/GetAllLeads")]
+        public List<Lead> GetAllLeads() => _leadRepository.GetAllLeads();
     }
 }
 

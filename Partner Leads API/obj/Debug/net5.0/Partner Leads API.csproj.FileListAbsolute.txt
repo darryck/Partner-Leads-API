@@ -71,3 +71,4 @@ C:\Users\darry\source\repos\Partner Leads API\Partner Leads API\bin\Debug\net5.0
 C:\Users\darry\source\repos\Partner Leads API\Partner Leads API\bin\Debug\net5.0\Swashbuckle.AspNetCore.Filters.dll
 C:\Users\darry\source\repos\Partner Leads API\Partner Leads API\bin\Debug\net5.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
 C:\Users\darry\source\repos\Partner Leads API\Partner Leads API\bin\Debug\net5.0\appsettings.json
+C:\Users\darry\source\repos\Partner Leads API\Partner Leads API\bin\Debug\net5.0\AutoMapper.dll

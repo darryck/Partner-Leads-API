@@ -25,13 +25,14 @@ namespace Partner_Leads_API
         
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;            
+            Configuration = configuration;
+            PartnerLeadsContext.GetConnectionString("Server=24.2.16.24,1433;Database=PartnerLeads;User Id =Partner;Password=PartnerLeadsAPI123;");
         }        
         public IConfiguration Configuration { get; }
         
         public void ConfigureServices(IServiceCollection services)
         {
-            PartnerLeadsContext.GetConnectionString("Server=24.2.16.24,1433;Database=PartnerLeads;User Id =Partner;Password=PartnerLeadsAPI123;");
+            
             services.AddControllers();
             services.AddSwaggerGen();
             services.AddSwaggerGen(c =>

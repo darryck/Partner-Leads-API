@@ -17,7 +17,6 @@ namespace Partner_Leads_API.Models
         public string Zip { get; set; }
         public string LeadStatus { get; set; }
         public DateTime? InstallDate { get; set; }
-
         public virtual LeadStatus LeadStatusNavigation { get; set; }
         public virtual PartnerCompany PartnerCompany { get; set; }
         public virtual SalesRep SalesRep { get; set; }

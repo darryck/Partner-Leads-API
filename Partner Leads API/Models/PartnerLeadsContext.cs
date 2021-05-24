@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 namespace Partner_Leads_API.Models
 {
@@ -22,7 +21,6 @@ namespace Partner_Leads_API.Models
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer(ConnectionString);
-                //optionsBuilder.UseSqlServer("Server=24.2.16.24,1433;Database=PartnerLeads;User Id=Partner;Password=PartnerLeadsAPI123;");
             }
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
