@@ -1,13 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "HVYduFjPOwC1fwUC1pSwibJcsikK+qZW7FgK7K9koONI6QLNqkSvcs1YV+vMc0vBONKFGf2i+jMve8ZgtuS8vg==",
+  "dgSpecHash": "YPFxT+Rf79hOzDX4dnOh7VnSh8D77p/p1X10KCTOLWkPX4k+V/MJoKc5/eQQs+YioFWD7wZaSRu5wNvc+5Fabg==",
   "success": true,
   "projectFilePath": "C:\\Users\\darry\\source\\repos\\Partner Leads API\\LeadsTests\\LeadsTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\darry\\.nuget\\packages\\coverlet.collector\\3.0.3\\coverlet.collector.3.0.3.nupkg.sha512",
     "C:\\Users\\darry\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
-    "C:\\Users\\darry\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning\\5.0.0\\microsoft.aspnetcore.mvc.versioning.5.0.0.nupkg.sha512",
-    "C:\\Users\\darry\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning.apiexplorer\\5.0.0\\microsoft.aspnetcore.mvc.versioning.apiexplorer.5.0.0.nupkg.sha512",
     "C:\\Users\\darry\\.nuget\\packages\\microsoft.codecoverage\\16.9.4\\microsoft.codecoverage.16.9.4.nupkg.sha512",
     "C:\\Users\\darry\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\darry\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",

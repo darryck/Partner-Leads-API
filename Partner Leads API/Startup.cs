@@ -22,17 +22,17 @@ namespace Partner_Leads_API
 {
     public class Startup
     {
+        
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            Configuration = configuration;            
         }        
         public IConfiguration Configuration { get; }
+        
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<PartnerLeadsContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));            
+            PartnerLeadsContext.GetConnectionString("Server=24.2.16.24,1433;Database=PartnerLeads;User Id =Partner;Password=PartnerLeadsAPI123;");
             services.AddControllers();
-
             services.AddSwaggerGen();
             services.AddSwaggerGen(c =>
             {
@@ -50,7 +50,7 @@ namespace Partner_Leads_API
                 {
                     new OpenApiSecurityScheme{
                         Reference = new OpenApiReference{
-                            Id = "ApiKey", //The name of the previously defined security scheme.
+                            Id = "ApiKey",
                             Type = ReferenceType.SecurityScheme
                         }
                     },new List<string>()
@@ -73,11 +73,8 @@ namespace Partner_Leads_API
                 });
             });
         }
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
-            
+        {            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -93,8 +90,7 @@ namespace Partner_Leads_API
             {                
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
                 c.RoutePrefix = string.Empty;
-            });
-            
+            });            
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthorization();

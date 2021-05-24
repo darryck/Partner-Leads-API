@@ -1,13 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Filters;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Partner_Leads_API.Models;
-using Partner_Leads_API.Repositories;
-using System;
+﻿using System;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
+using Partner_Leads_API.Models;
+using Partner_Leads_API.Repositories;
 
 namespace Partner_Leads_API.MessageHandlers
 {
@@ -17,10 +15,9 @@ namespace Partner_Leads_API.MessageHandlers
         [AttributeUsage(validOn: AttributeTargets.Class)]
         public class ApiKeyAttribute : Attribute, IAsyncActionFilter
         {
-            private const string APIKEYNAME = "ApiKey";
             public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
             {
-                if (!context.HttpContext.Request.Headers.TryGetValue(APIKEYNAME, out var extractedApiKey))
+                if (!context.HttpContext.Request.Headers.TryGetValue("ApiKey", out var extractedApiKey))
                 {
                     context.Result = new ContentResult()
                     {
@@ -29,10 +26,6 @@ namespace Partner_Leads_API.MessageHandlers
                     };
                     return;
                 }
-
-                var appSettings = context.HttpContext.RequestServices.GetRequiredService<IConfiguration>();
-
-                var apiKey = appSettings.GetValue<string>(APIKEYNAME);
                 using var DbContext = new PartnerLeadsContext();
                 var partnerComapnyId = DbContext.PartnerCompanies.Where(l => l.ApiKey == extractedApiKey.ToString()).Select(pc => pc.PartnerCompanyId).ToList();
                 if (partnerComapnyId.Count == 0)
@@ -40,7 +33,7 @@ namespace Partner_Leads_API.MessageHandlers
                     context.Result = new ContentResult()
                     {
                         StatusCode = 401,
-                        Content = "Api Key is invalid"
+                        Content = "ApiKey is invalid"
                     };
                     return;
                 }

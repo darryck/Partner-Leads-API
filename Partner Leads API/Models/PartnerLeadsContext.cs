@@ -1,33 +1,30 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-
-#nullable disable
 
 namespace Partner_Leads_API.Models
 {
     public partial class PartnerLeadsContext : DbContext
     {
-        public PartnerLeadsContext(){}
-        public PartnerLeadsContext(DbContextOptions<PartnerLeadsContext> options)
-            : base(options)
+        public static void GetConnectionString(string connectionString)
         {
+            ConnectionString = connectionString;
         }
+        public static string ConnectionString { get; set; }
+        public PartnerLeadsContext(){}
         public virtual DbSet<Lead> Leads { get; set; }
         public virtual DbSet<LeadStatus> LeadStatuses { get; set; }
         public virtual DbSet<Manager> Managers { get; set; }
         public virtual DbSet<PartnerCompany> PartnerCompanies { get; set; }
         public virtual DbSet<SalesRep> SalesReps { get; set; }
-
+        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=24.2.16.24,1433;Database=PartnerLeads;User Id =Partner;Password=PartnerLeadsAPI123;");
+                optionsBuilder.UseSqlServer(ConnectionString);
+                //optionsBuilder.UseSqlServer("Server=24.2.16.24,1433;Database=PartnerLeads;User Id=Partner;Password=PartnerLeadsAPI123;");
             }
         }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
@@ -179,7 +176,6 @@ namespace Partner_Leads_API.Models
 
             OnModelCreatingPartial(modelBuilder);
         }
-
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }
